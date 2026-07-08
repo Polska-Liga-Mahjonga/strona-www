@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMS Admin - Polska Liga Mahjonga</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h1>🀄 Polska Liga Mahjonga</h1>
+                    <p class="tagline">Panel administracyjny CMS</p>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Strona Główna</a></li>
+                    <li><a href="admin.html" class="active">CMS Admin</a></li>
+                    <li><a href="/.auth/logout">Wyloguj</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="admin-status" id="auth-status">Sprawdzanie sesji administratora...</div>
+
+            <div class="admin-layout">
+                <section class="admin-card">
+                    <h2>Edycja treści</h2>
+                    <p class="admin-hint">Twórz i edytuj treści: news, event, team, page-section i site-setting.</p>
+
+                    <form class="admin-form" id="content-form">
+                        <input type="hidden" id="item-id">
+
+                        <label>
+                            Typ treści
+                            <select id="item-type" required>
+                                <option value="">Wybierz...</option>
+                                <option value="news">news</option>
+                                <option value="event">event</option>
+                                <option value="team">team</option>
+                                <option value="page-section">page-section</option>
+                                <option value="site-setting">site-setting</option>
+                            </select>
+                        </label>
+
+                        <label>
+                            Slug
+                            <input id="item-slug" type="text" placeholder="np. warsaw-mahjong-tournament-2024">
+                        </label>
+
+                        <label>
+                            Tytuł
+                            <input id="item-title" type="text" required>
+                        </label>
+
+                        <label>
+                            Zajawka / opis skrócony
+                            <textarea id="item-excerpt"></textarea>
+                        </label>
+
+                        <label>
+                            Treść
+                            <textarea id="item-body"></textarea>
+                        </label>
+
+                        <label>
+                            URL obrazka
+                            <input id="item-image-url" type="text" placeholder="images/news1.jpg lub pełny URL">
+                        </label>
+
+                        <div class="inline-fields">
+                            <label>
+                                Dodatkowe dane JSON
+                                <textarea id="item-data" placeholder='{"date":"2024-12-15"}'></textarea>
+                            </label>
+
+                            <label>
+                                Kolejność
+                                <input id="item-order" type="number" value="0" step="1">
+                            </label>
+
+                            <label>
+                                Publikacja
+                                <span>
+                                    <input id="item-published" type="checkbox" checked>
+                                    opublikowane
+                                </span>
+                            </label>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary" id="save-btn">Zapisz</button>
+                            <button type="button" class="btn btn-primary" id="reset-btn">Wyczyść</button>
+                            <button type="button" class="btn btn-primary" id="seed-btn">Wgraj dane startowe</button>
+                        </div>
+                    </form>
+                </section>
+
+                <section class="admin-card">
+                    <h2>Lista wpisów</h2>
+                    <div class="admin-toolbar">
+                        <select id="type-filter">
+                            <option value="">Wszystkie typy</option>
+                            <option value="news">news</option>
+                            <option value="event">event</option>
+                            <option value="team">team</option>
+                            <option value="page-section">page-section</option>
+                            <option value="site-setting">site-setting</option>
+                        </select>
+                        <input type="text" id="search-filter" placeholder="Szukaj po tytule/slug...">
+                        <button class="btn btn-primary" id="refresh-btn">Odśwież</button>
+                    </div>
+
+                    <div class="items-table-wrap">
+                        <table class="items-table" id="items-table">
+                            <thead>
+                                <tr>
+                                    <th>Typ / Slug</th>
+                                    <th>Tytuł</th>
+                                    <th>Status</th>
+                                    <th>Aktualizacja</th>
+                                    <th>Akcje</th>
+                                </tr>
+                            </thead>
+                            <tbody id="items-tbody"></tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/script.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

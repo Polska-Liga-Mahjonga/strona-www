@@ -11,6 +11,17 @@ Professional website for Polska Liga Mahjonga (Polish Mahjong League) non-profit
 - ⚡ Modern, clean, and fast-loading
 - 🎯 Optimized for tournament registration and member engagement
 
+## CMS + Azure Backend (Current State)
+
+- Frontend runs from `docs/` and is wired to CMS API endpoints (`/api/content...`).
+- Admin panel is available at `docs/admin.html` and supports CRUD + seed operations.
+- Backend is implemented in `api/` (Azure Functions v4 + TypeScript).
+- Content is stored in Azure Cosmos DB (single container model).
+- Azure deployment scaffolding is included via:
+   - `azure.yaml`
+   - `infra/main.bicep`
+   - `docs/staticwebapp.config.json`
+
 ## Pages Included
 
 - **index.html** - Home page with hero section, about preview, events, and news
@@ -51,6 +62,17 @@ org_www/
 1. Simply open `index.html` in your web browser
 2. No server required - all files are static HTML/CSS/JS
 3. All pages are interlinked and ready to use
+
+### Local CMS/API Development
+
+1. Go to `api/` and install packages:
+   - `npm install`
+2. Build the backend:
+   - `npm run build`
+3. Create local config from `api/local.settings.example.json` to `api/local.settings.json`.
+4. Start Azure Functions host (requires Azure Functions Core Tools):
+   - `npm start`
+5. Start frontend from `docs/` using any static server.
 
 ### For Production
 

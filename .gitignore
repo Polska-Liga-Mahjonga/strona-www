@@ -1,0 +1,16 @@
+# Node dependencies and builds
+api/node_modules/
+api/dist/
+api/.func/
+
+# Local Azure Functions secrets
+api/local.settings.json
+
+# Env files
+.env
+.env.*
+
+# Editor and OS files
+.vscode/
+.DS_Store
+Thumbs.db

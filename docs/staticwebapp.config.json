@@ -1,0 +1,38 @@
+{
+  "routes": [
+    {
+      "route": "/admin.html",
+      "allowedRoles": [
+        "admin"
+      ]
+    },
+    {
+      "route": "/api/admin/*",
+      "allowedRoles": [
+        "admin"
+      ]
+    },
+    {
+      "route": "/api/*",
+      "allowedRoles": [
+        "anonymous"
+      ]
+    }
+  ],
+  "globalHeaders": {
+    "X-Frame-Options": "DENY",
+    "X-Content-Type-Options": "nosniff",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "Permissions-Policy": "camera=(), microphone=(), geolocation=()"
+  },
+  "responseOverrides": {
+    "401": {
+      "statusCode": 302,
+      "redirect": "/.auth/login/aad"
+    },
+    "403": {
+      "rewrite": "/403.html",
+      "statusCode": 403
+    }
+  }
+}

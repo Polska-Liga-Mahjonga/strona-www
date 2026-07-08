@@ -1,0 +1,25 @@
+{
+  "name": "plm-cms-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "dist/src/functions/*.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rimraf dist",
+    "prestart": "npm run build",
+    "start": "func start"
+  },
+  "dependencies": {
+    "@azure/cosmos": "^4.3.0",
+    "@azure/functions": "^4.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.12",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.5.4"
+  }
+}
