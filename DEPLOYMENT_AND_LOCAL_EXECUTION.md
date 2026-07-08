@@ -41,14 +41,23 @@ func --version
 Copy-Item api/local.settings.example.json api/local.settings.json
 ```
 
-2. Edit `api/local.settings.json` and set real values:
+2. Choose one of these Cosmos modes:
 
-- `COSMOS_ENDPOINT`
-- `COSMOS_KEY`
-- `COSMOS_DATABASE`
-- `COSMOS_CONTAINER`
+- Emulator fallback mode (default in example file):
+   - Keep `COSMOS_ENDPOINT` and `COSMOS_KEY` empty.
+   - Keep `COSMOS_EMULATOR_FALLBACK=true`.
+   - Start Cosmos DB Emulator locally.
 
-3. For `AzureWebJobsStorage`:
+- Azure Cosmos mode:
+   - Set `COSMOS_ENDPOINT` and `COSMOS_KEY` with real Azure values.
+   - Optionally set `COSMOS_EMULATOR_FALLBACK=false`.
+
+3. Keep content store values (or adjust if needed):
+
+- `COSMOS_DATABASE` (default: `plm-cms`)
+- `COSMOS_CONTAINER` (default: `content`)
+
+4. For `AzureWebJobsStorage`:
 
 - Keep `UseDevelopmentStorage=true` and run Azurite, or
 - Replace with a real Azure Storage connection string.

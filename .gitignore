@@ -5,6 +5,7 @@ api/.func/
 
 # Local Azure Functions secrets
 api/local.settings.json
+local.settings.json
 
 # Env files
 .env
