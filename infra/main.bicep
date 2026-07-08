@@ -13,12 +13,35 @@ param cosmosDatabaseName string = 'plm-cms'
 @description('Cosmos DB SQL container name.')
 param cosmosContainerName string = 'content'
 
+@description('Cosmos throughput mode. Serverless is typically the lowest-cost option for small traffic.')
+@allowed([
+  'serverless'
+  'provisioned'
+])
+param cosmosThroughputMode string = 'serverless'
+
+@description('Provisioned RU/s used only when cosmosThroughputMode is set to provisioned.')
+@minValue(400)
+param cosmosProvisionedThroughput int = 400
+
 var suffix = toLower(uniqueString(subscription().subscriptionId, resourceGroup().id, environmentName))
 var storageAccountName = take('plmapi${suffix}', 24)
 var functionAppName = 'plm-api-${environmentName}-${suffix}'
 var appInsightsName = 'plm-ai-${environmentName}-${suffix}'
 var hostingPlanName = 'plm-plan-${environmentName}-${suffix}'
 var cosmosAccountName = 'plm-cms-${suffix}'
+var cosmosCapabilities = cosmosThroughputMode == 'serverless'
+  ? [
+      {
+        name: 'EnableServerless'
+      }
+    ]
+  : []
+var cosmosContainerOptions = cosmosThroughputMode == 'provisioned'
+  ? {
+      throughput: cosmosProvisionedThroughput
+    }
+  : {}
 
 resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' = {
   name: storageAccountName
@@ -76,6 +99,7 @@ resource cosmosAccount 'Microsoft.DocumentDB/databaseAccounts@2023-04-15' = {
     minimalTlsVersion: 'Tls12'
     publicNetworkAccess: 'Enabled'
     disableLocalAuth: false
+    capabilities: cosmosCapabilities
   }
 }
 
@@ -116,9 +140,7 @@ resource cosmosSqlContainer 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/
         ]
       }
     }
-    options: {
-      throughput: 400
-    }
+    options: cosmosContainerOptions
   }
 }
 
@@ -214,3 +236,4 @@ resource staticWebAppLinkedBackend 'Microsoft.Web/staticSites/linkedBackends@202
 output staticWebAppHostName string = staticWebApp.properties.defaultHostname
 output functionAppHostName string = functionApp.properties.defaultHostName
 output cosmosEndpoint string = cosmosAccount.properties.documentEndpoint
+output cosmosThroughputModeUsed string = cosmosThroughputMode
