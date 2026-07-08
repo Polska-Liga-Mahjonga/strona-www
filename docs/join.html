@@ -95,13 +95,13 @@
                     <div class="separator"></div>
                 </div>
 
-                <div class="content-main" style="max-width: 900px; margin: 0 auto;">
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                <div class="content-main narrow-900">
+                    <div class="membership-grid">
                         <div class="event-detail-card">
-                            <div style="text-align: center;">
-                                <div style="font-size: 3rem; margin-bottom: 1rem;">🎓</div>
-                                <h2 style="color: var(--primary-color);">Członkostwo Zwykłe</h2>
-                                <p style="font-size: 2rem; color: var(--primary-color); font-weight: bold; margin: 1rem 0;">100 PLN/rok</p>
+                            <div class="membership-head">
+                                <div class="membership-icon">🎓</div>
+                                <h2>Członkostwo Zwykłe</h2>
+                                <p class="membership-price">100 PLN/rok</p>
                             </div>
                             <h3>Co obejmuje:</h3>
                             <ul>
@@ -117,10 +117,10 @@
                         </div>
 
                         <div class="event-detail-card">
-                            <div style="text-align: center;">
-                                <div style="font-size: 3rem; margin-bottom: 1rem;">👨‍🎓</div>
-                                <h2 style="color: var(--primary-color);">Członkostwo Studenckie</h2>
-                                <p style="font-size: 2rem; color: var(--primary-color); font-weight: bold; margin: 1rem 0;">50 PLN/rok</p>
+                            <div class="membership-head">
+                                <div class="membership-icon">👨‍🎓</div>
+                                <h2>Członkostwo Studenckie</h2>
+                                <p class="membership-price">50 PLN/rok</p>
                             </div>
                             <h3>Co obejmuje:</h3>
                             <ul>
@@ -136,10 +136,10 @@
                         </div>
 
                         <div class="event-detail-card">
-                            <div style="text-align: center;">
-                                <div style="font-size: 3rem; margin-bottom: 1rem;">💎</div>
-                                <h2 style="color: var(--primary-color);">Członkostwo Honorowe</h2>
-                                <p style="font-size: 1.2rem; color: var(--primary-color); font-weight: bold; margin: 1rem 0;">Na zaproszenie</p>
+                            <div class="membership-head">
+                                <div class="membership-icon">💎</div>
+                                <h2>Członkostwo Honorowe</h2>
+                                <p class="membership-note">Na zaproszenie</p>
                             </div>
                             <h3>Dla kogo:</h3>
                             <ul>
@@ -149,8 +149,8 @@
                                 <li>Wszystkie przywileje członkowskie</li>
                                 <li>Brak opłat członkowskich</li>
                             </ul>
-                            <div class="registration-box" style="background: #e9ecef;">
-                                <p style="color: var(--text-dark);">Przyznawane przez Zarząd</p>
+                            <div class="registration-box muted">
+                                <p class="muted-text">Przyznawane przez Zarząd</p>
                             </div>
                         </div>
                     </div>
@@ -168,7 +168,7 @@
                         <p>Wypełnij poniższy formularz, aby dołączyć do Polskiej Ligi Mahjonga</p>
 
                         <form class="contact-form">
-                            <h3 style="margin-top: 2rem;">Dane Osobowe</h3>
+                            <h3 class="form-section-title">Dane Osobowe</h3>
                             
                             <div class="form-row">
                                 <div class="form-group">
@@ -197,7 +197,7 @@
                                 <input type="date" id="birthDate" name="birthDate" required>
                             </div>
 
-                            <h3 style="margin-top: 2rem;">Adres</h3>
+                            <h3 class="form-section-title">Adres</h3>
 
                             <div class="form-group">
                                 <label for="street">Ulica i numer *</label>
@@ -215,7 +215,7 @@
                                 </div>
                             </div>
 
-                            <h3 style="margin-top: 2rem;">Członkostwo</h3>
+                            <h3 class="form-section-title">Członkostwo</h3>
 
                             <div class="form-group">
                                 <label for="membershipType">Typ członkostwa *</label>
@@ -242,55 +242,55 @@
                                 <textarea id="motivation" name="motivation" rows="4"></textarea>
                             </div>
 
-                            <div class="form-group" style="margin-top: 2rem;">
-                                <label style="display: flex; align-items: start; cursor: pointer;">
-                                    <input type="checkbox" required style="margin-right: 0.5rem; margin-top: 0.25rem;">
-                                    <span>Akceptuję <a href="#" style="color: var(--primary-color);">regulamin</a> i <a href="#" style="color: var(--primary-color);">politykę prywatności</a> *</span>
+                            <div class="form-group form-actions">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" required>
+                                    <span>Akceptuję <a href="#" class="inline-link-primary">regulamin</a> i <a href="#" class="inline-link-primary">politykę prywatności</a> *</span>
                                 </label>
                             </div>
 
                             <div class="form-group">
-                                <label style="display: flex; align-items: start; cursor: pointer;">
-                                    <input type="checkbox" style="margin-right: 0.5rem; margin-top: 0.25rem;">
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
                                     <span>Wyrażam zgodę na przetwarzanie danych osobowych w celach marketingowych</span>
                                 </label>
                             </div>
 
-                            <button type="submit" class="btn btn-primary" style="margin-top: 2rem;">Wyślij formularz</button>
+                            <button type="submit" class="btn btn-primary form-actions">Wyślij formularz</button>
                         </form>
                     </div>
 
                     <aside class="sidebar">
                         <div class="sidebar-widget">
                             <h3>Proces Rejestracji</h3>
-                            <div class="timeline" style="padding: 0;">
-                                <div class="timeline-item" style="flex-direction: column; align-items: start; margin-bottom: 1.5rem;">
-                                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
-                                        <div style="background: var(--primary-color); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">1</div>
+                            <div class="timeline join-process">
+                                <div class="timeline-item">
+                                    <div class="join-process-head">
+                                        <div class="join-process-index">1</div>
                                         <strong>Wypełnij formularz</strong>
                                     </div>
-                                    <p style="margin-left: 2.5rem; font-size: 0.9rem; color: #666;">Podaj wszystkie wymagane dane</p>
+                                    <p class="join-process-note">Podaj wszystkie wymagane dane</p>
                                 </div>
-                                <div class="timeline-item" style="flex-direction: column; align-items: start; margin-bottom: 1.5rem;">
-                                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
-                                        <div style="background: var(--primary-color); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">2</div>
+                                <div class="timeline-item">
+                                    <div class="join-process-head">
+                                        <div class="join-process-index">2</div>
                                         <strong>Weryfikacja</strong>
                                     </div>
-                                    <p style="margin-left: 2.5rem; font-size: 0.9rem; color: #666;">Sprawdzimy Twoje dane (1-2 dni)</p>
+                                    <p class="join-process-note">Sprawdzimy Twoje dane (1-2 dni)</p>
                                 </div>
-                                <div class="timeline-item" style="flex-direction: column; align-items: start; margin-bottom: 1.5rem;">
-                                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
-                                        <div style="background: var(--primary-color); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">3</div>
+                                <div class="timeline-item">
+                                    <div class="join-process-head">
+                                        <div class="join-process-index">3</div>
                                         <strong>Opłata</strong>
                                     </div>
-                                    <p style="margin-left: 2.5rem; font-size: 0.9rem; color: #666;">Otrzymasz dane do przelewu</p>
+                                    <p class="join-process-note">Otrzymasz dane do przelewu</p>
                                 </div>
-                                <div class="timeline-item" style="flex-direction: column; align-items: start;">
-                                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
-                                        <div style="background: var(--primary-color); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">4</div>
+                                <div class="timeline-item">
+                                    <div class="join-process-head">
+                                        <div class="join-process-index">4</div>
                                         <strong>Aktywacja</strong>
                                     </div>
-                                    <p style="margin-left: 2.5rem; font-size: 0.9rem; color: #666;">Witamy w PLM!</p>
+                                    <p class="join-process-note">Witamy w PLM!</p>
                                 </div>
                             </div>
                         </div>
@@ -298,9 +298,9 @@
                         <div class="contact-info-box">
                             <h3>Masz pytania?</h3>
                             <p>Skontaktuj się z nami</p>
-                            <div style="margin-top: 1rem;">
+                            <div class="contact-quick">
                                 <p><i class="fas fa-envelope"></i> czlonkostwo@plm.org.pl</p>
-                                <p style="margin-top: 0.5rem;"><i class="fas fa-phone"></i> +48 123 456 789</p>
+                                <p><i class="fas fa-phone"></i> +48 123 456 789</p>
                             </div>
                         </div>
 
