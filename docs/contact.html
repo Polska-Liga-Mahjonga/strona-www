@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - Polska Liga Mahjonga</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h1>🀄 Polska Liga Mahjonga</h1>
+                    <p class="tagline">Zagrajmy w Riichi! I nie tylko</p>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Strona Główna</a></li>
+                    <li><a href="about.html">O Nas</a></li>
+                    <li><a href="events.html">Turnieje</a></li>
+                    <li><a href="news.html">Aktualności</a></li>
+                    <li><a href="team.html">Zarząd</a></li>
+                    <li><a href="join.html">Dołącz</a></li>
+                    <li><a href="contact.html" class="active">Kontakt</a></li>
+                    <li><a href="contact-en.html" class="lang-switch">EN</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Skontaktuj się z nami</h1>
+                <p>Masz pytania? Chętnie odpowiemy</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="content-section">
+            <div class="container">
+                <div class="content-grid">
+                    <div class="content-main">
+                        <h2>Formularz Kontaktowy</h2>
+                        <div class="separator"></div>
+                        <p>Wypełnij poniższy formularz, a my odpowiemy najszybciej jak to możliwe.</p>
+
+                        <form class="contact-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Imię i nazwisko *</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Adres email *</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone">Telefon</label>
+                                    <input type="tel" id="phone" name="phone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="subject">Temat *</label>
+                                    <select id="subject" name="subject" required>
+                                        <option value="">Wybierz temat...</option>
+                                        <option value="general">Pytanie ogólne</option>
+                                        <option value="membership">Członkostwo</option>
+                                        <option value="tournament">Turnieje</option>
+                                        <option value="workshop">Warsztaty</option>
+                                        <option value="partnership">Współpraca</option>
+                                        <option value="other">Inne</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Wiadomość *</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Wyślij wiadomość</button>
+                        </form>
+                    </div>
+
+                    <aside class="sidebar">
+                        <div class="contact-info-box">
+                            <h3>Informacje Kontaktowe</h3>
+                            
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div class="contact-item-content">
+                                    <h4>Email</h4>
+                                    <p>kontakt@plm.org.pl<br>
+                                    turnieje@plm.org.pl</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div class="contact-item-content">
+                                    <h4>Telefon</h4>
+                                    <p>+48 123 456 789<br>
+                                    Pn-Pt: 10:00 - 17:00</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="contact-item-content">
+                                    <h4>Adres korespondencyjny</h4>
+                                    <p>ul. Przykładowa 10<br>
+                                    00-001 Warszawa<br>
+                                    Polska</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <i class="fas fa-clock"></i>
+                                <div class="contact-item-content">
+                                    <h4>Godziny</h4>
+                                    <p>Biuro czynne:<br>
+                                    Poniedziałek - Piątek<br>
+                                    10:00 - 17:00</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-widget">
+                            <h3>Media Społecznościowe</h3>
+                            <div class="social-links" style="justify-content: flex-start; margin-top: 1rem;">
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-widget">
+                            <h3>Dane Organizacji</h3>
+                            <ul class="info-list">
+                                <li><strong>KRS:</strong> 0000356035</li>
+                                <li><strong>NIP:</strong> 5222954731</li>
+                                <li><strong>REGON:</strong> 012345678</li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="timeline-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Często Zadawane Pytania</h2>
+                    <div class="separator"></div>
+                </div>
+                <div class="content-main" style="max-width: 800px; margin: 0 auto;">
+                    <div class="highlight-box">
+                        <h3>Jak mogę zostać członkiem PLM?</h3>
+                        <p>Wystarczy wypełnić formularz członkowski dostępny na stronie <a href="join.html">Dołącz</a> lub skontaktować się z nami bezpośrednio. Członkostwo jest otwarte dla wszystkich zainteresowanych grą w mahjonga.</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h3>Czy organizujecie kursy dla początkujących?</h3>
+                        <p>Tak! Regularnie organizujemy warsztaty wprowadzające do gry w Riichi Mahjong. Sprawdź sekcję <a href="events.html">Turnieje</a> aby zobaczyć najbliższe wydarzenia.</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h3>Jak mogę wziąć udział w turnieju?</h3>
+                        <p>Informacje o nadchodzących turniejach znajdziesz w sekcji <a href="events.html">Turnieje</a>. Każdy turniej ma swoją stronę z formularzem rejestracyjnym.</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h3>Czy mogę wspomóc działalność PLM?</h3>
+                        <p>Tak! Zapraszamy do zapoznania się z informacjami na stronie <a href="donate.html">Wsparcie</a>. Każda forma pomocy jest mile widziana.</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h3>Jak mogę zaprosić PLM do współpracy?</h3>
+                        <p>Zapraszamy do kontaktu przez formularz powyżej, wybierając temat "Współpraca". Chętnie rozważymy propozycje partnerstwa i wspólnych inicjatyw.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Nie znalazłeś odpowiedzi?</h2>
+                <p>Skontaktuj się z nami, a postaramy się pomóc</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary">Wyślij email</a>
+                    <a href="events.html" class="btn btn-secondary">Zobacz wydarzenia</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Polska Liga Mahjonga</h3>
+                    <p>Propagowanie Mahjonga w Polsce od 2010 roku</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Linki</h3>
+                    <ul>
+                        <li><a href="about.html">O Nas</a></li>
+                        <li><a href="events.html">Turnieje</a></li>
+                        <li><a href="news.html">Aktualności</a></li>
+                        <li><a href="team.html">Zarząd</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Zasoby</h3>
+                    <ul>
+                        <li><a href="join.html">Dołącz do nas</a></li>
+                        <li><a href="donate.html">Wsparcie</a></li>
+                        <li><a href="reports.html">Raporty Roczne</a></li>
+                        <li><a href="contact.html">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Organizacja</h3>
+                    <p><strong>KRS:</strong> 0000356035</p>
+                    <p><strong>NIP:</strong> 5222954731</p>
+                    <p><strong>Założono:</strong> 2010</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Polska Liga Mahjonga. Wszystkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
