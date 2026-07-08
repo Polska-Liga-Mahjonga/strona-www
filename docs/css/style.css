@@ -119,6 +119,11 @@ header {
     font-weight: 500;
 }
 
+.nav-menu a[href="index.html"],
+.nav-menu a[href="about.html"] {
+    white-space: nowrap;
+}
+
 .nav-menu a:hover,
 .nav-menu a.active {
     background-color: rgba(255, 255, 255, 0.2);
