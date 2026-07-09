@@ -1,6 +1,6 @@
 const API = {
-    adminContent: "/api/admin/content",
-    seed: "/api/admin/seed"
+    adminContent: "/api/cms-admin/content",
+    seed: "/api/cms-admin/seed"
 };
 
 const state = {

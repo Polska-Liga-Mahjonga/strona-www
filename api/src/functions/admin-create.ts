@@ -44,6 +44,6 @@ export async function adminCreateHandler(request: HttpRequest, context: Invocati
 app.http("adminCreate", {
   methods: ["POST"],
   authLevel: "anonymous",
-  route: "admin/content",
+  route: "cms-admin/content",
   handler: adminCreateHandler
 });

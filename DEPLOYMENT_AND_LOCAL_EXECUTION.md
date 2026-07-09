@@ -57,7 +57,12 @@ Copy-Item api/local.settings.example.json api/local.settings.json
 - `COSMOS_DATABASE` (default: `plm-cms`)
 - `COSMOS_CONTAINER` (default: `content`)
 
-4. For `AzureWebJobsStorage`:
+4. For local CMS admin convenience with SWA emulator:
+
+- Keep `CMS_LOCAL_AUTHENTICATED_IS_ADMIN=true` in `api/local.settings.json`.
+- This is local-only fallback so authenticated local users can access admin endpoints even if emulator does not pass a custom `admin` role.
+
+5. For `AzureWebJobsStorage`:
 
 - Keep `UseDevelopmentStorage=true` and run Azurite, or
 - Replace with a real Azure Storage connection string.
@@ -162,8 +167,14 @@ azd down
 
 Static Web App config enforces:
 
-- `/admin.html` requires role `admin`
-- `/api/admin/*` requires role `admin`
+- `/admin.html` allows `authenticated` and `admin`
+- `/api/cms-admin/*` allows `authenticated` and `admin`
 - `/api/*` public read endpoints remain anonymous
+
+Backend enforcement:
+
+- Admin API handlers still verify admin role in `x-ms-client-principal`.
+- Local-only fallback (`CMS_LOCAL_AUTHENTICATED_IS_ADMIN=true`) can treat `authenticated` as admin for emulator workflows.
+- Keep fallback disabled in cloud environments.
 
 Configure user role assignments in Azure Static Web Apps authentication/authorization settings.

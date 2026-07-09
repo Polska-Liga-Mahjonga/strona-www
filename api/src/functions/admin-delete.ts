@@ -35,6 +35,6 @@ export async function adminDeleteHandler(request: HttpRequest, context: Invocati
 app.http("adminDelete", {
   methods: ["DELETE"],
   authLevel: "anonymous",
-  route: "admin/content/{id}",
+  route: "cms-admin/content/{id}",
   handler: adminDeleteHandler
 });

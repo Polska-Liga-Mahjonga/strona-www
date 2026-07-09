@@ -46,6 +46,6 @@ export async function adminSeedHandler(request: HttpRequest, context: Invocation
 app.http("adminSeed", {
   methods: ["POST"],
   authLevel: "anonymous",
-  route: "admin/seed",
+  route: "cms-admin/seed",
   handler: adminSeedHandler
 });

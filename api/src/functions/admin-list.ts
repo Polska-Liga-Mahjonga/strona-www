@@ -29,6 +29,6 @@ export async function adminListHandler(request: HttpRequest, context: Invocation
 app.http("adminList", {
   methods: ["GET"],
   authLevel: "anonymous",
-  route: "admin/content",
+  route: "cms-admin/content",
   handler: adminListHandler
 });

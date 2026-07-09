@@ -3,12 +3,14 @@
     {
       "route": "/admin.html",
       "allowedRoles": [
+        "authenticated",
         "admin"
       ]
     },
     {
-      "route": "/api/admin/*",
+      "route": "/api/cms-admin/*",
       "allowedRoles": [
+        "authenticated",
         "admin"
       ]
     },

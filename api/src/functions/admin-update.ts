@@ -57,6 +57,6 @@ export async function adminUpdateHandler(request: HttpRequest, context: Invocati
 app.http("adminUpdate", {
   methods: ["PUT"],
   authLevel: "anonymous",
-  route: "admin/content/{id}",
+  route: "cms-admin/content/{id}",
   handler: adminUpdateHandler
 });

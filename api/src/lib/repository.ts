@@ -5,7 +5,7 @@ import type { ValidatedPayload } from "./validation.js";
 export async function listPublicByType(type: string, limit = 100): Promise<CmsContentItem[]> {
   const container = getContentContainer();
   const querySpec = {
-    query: "SELECT * FROM c WHERE c.type = @type AND c.published = true ORDER BY c.order ASC, c.updatedAt DESC OFFSET 0 LIMIT @limit",
+    query: "SELECT * FROM c WHERE c.type = @type AND c.published = true ORDER BY c[\"order\"] ASC OFFSET 0 LIMIT @limit",
     parameters: [
       { name: "@type", value: type },
       { name: "@limit", value: limit }
@@ -20,11 +20,11 @@ export async function listAdmin(type?: string): Promise<CmsContentItem[]> {
   const container = getContentContainer();
   const querySpec = type
     ? {
-        query: "SELECT * FROM c WHERE c.type = @type ORDER BY c.order ASC, c.updatedAt DESC",
+        query: "SELECT * FROM c WHERE c.type = @type ORDER BY c[\"order\"] ASC",
         parameters: [{ name: "@type", value: type }]
       }
     : {
-        query: "SELECT * FROM c ORDER BY c.type ASC, c.order ASC, c.updatedAt DESC",
+        query: "SELECT * FROM c ORDER BY c[\"order\"] ASC",
         parameters: []
       };
 
@@ -34,8 +34,13 @@ export async function listAdmin(type?: string): Promise<CmsContentItem[]> {
 
 export async function getById(id: string): Promise<CmsContentItem | null> {
   const container = getContentContainer();
-  const { resource } = await container.item(id, id).read<CmsContentItem>();
-  return resource ?? null;
+  const querySpec = {
+    query: "SELECT TOP 1 * FROM c WHERE c.id = @id",
+    parameters: [{ name: "@id", value: id }]
+  };
+
+  const { resources } = await container.items.query<CmsContentItem>(querySpec).fetchAll();
+  return resources[0] ?? null;
 }
 
 export async function getByTypeSlug(type: string, slug: string): Promise<CmsContentItem | null> {
@@ -82,7 +87,13 @@ export async function updateItem(id: string, payload: Partial<ValidatedPayload>)
   };
 
   const container = getContentContainer();
-  const { resource } = await container.items.upsert<CmsContentItem>(updated);
+  if (existing.type === updated.type) {
+    const { resource } = await container.item(existing.id, existing.type).replace<CmsContentItem>(updated);
+    return resource as CmsContentItem;
+  }
+
+  await container.item(existing.id, existing.type).delete();
+  const { resource } = await container.items.create<CmsContentItem>(updated);
   return resource as CmsContentItem;
 }
 
@@ -93,7 +104,7 @@ export async function deleteItem(id: string): Promise<boolean> {
     return false;
   }
 
-  await container.item(id, id).delete();
+  await container.item(id, existing.type).delete();
   return true;
 }
 
